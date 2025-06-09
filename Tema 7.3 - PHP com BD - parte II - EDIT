@@ -1,5 +1,4 @@
 <?php
-// Verifica se há um ID na URL para modo de edição
 $editando = isset($_GET['id']);
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action'])) {
@@ -53,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = $_POST['email'] ?? '';
 
         if(empty($nome) || empty($email)) {
-            throw new Exception('Nome e email são obrigatórios');
+            throw new Exception('Nome e email obrigatórios!');
         }
 
         if($action === 'create') {
@@ -238,9 +237,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         function escapeHtml(str) {
             return str.replace(/'/g, "\\'").replace(/"/g, '&quot;');
         }
-
-        // Carrega os dados quando a página é aberta
+        
         window.onload = loadData;
+        
     </script>
 </body>
 </html>
